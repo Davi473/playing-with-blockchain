@@ -9,7 +9,7 @@ export default class PostMessage implements UseCase {
 
     public async execute(input: Input): Promise<Output> {
         const stock = new Stock(input.timestamp, input.quantity, input.name, input.price, input.buy);
-        const result = this.blockchain.addMessage(stock);
+        const result = this.blockchain.addStock(stock);
         const output = { message: result, latestBlock: this.blockchain.getLatestBlock() };
         return output;
     }

@@ -18,7 +18,7 @@ export default class Blockchain {
     return this.chain[this.chain.length - 1];
   }
 
-  addMessage(stock: Stock): string {
+  addStock(stock: Stock): string {
     const newBlock = new Block(this.chain.length, Date.now(), stock, this.getLatestBlock().hash);
     newBlock.mineBlock(this.difficulty);
     this.chain.push(newBlock);
