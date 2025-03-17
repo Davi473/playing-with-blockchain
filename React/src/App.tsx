@@ -9,9 +9,10 @@ function App() {
     const start = async () => {
       const response: any = await axios.get("http://localhost:3000/blocks");
       const output = response.data;
+      console.log(output);
       const stockUser = new Map<string, { quantity: number, amount: number, price: number}>;
       for (const block of output) {
-        const stock = block.stocks
+        const stock = block.asset
         if (!stock) continue;
         if (!stockUser.has(stock.name)) {
           stockUser.set(stock.name, 
@@ -43,6 +44,15 @@ function App() {
               <p>{value.quantity}</p>
               <p>amount</p>
               <p>{value.amount}</p>
+              <div className="list-group vh-100 d-flex justify-content-center align-items-center">
+                <button className="list-group-item list-group-item-action active">
+                  The current link item
+                </button>
+                <button className="list-group-item list-group-item-action">A second link item</button>
+                <button className="list-group-item list-group-item-action">A third link item</button>
+                <button className="list-group-item list-group-item-action">A fourth link item</button>
+                <button className="list-group-item list-group-item-action disabled">A disabled link item</button>
+              </div>
             </React.Fragment>
           ))
         ) : (
