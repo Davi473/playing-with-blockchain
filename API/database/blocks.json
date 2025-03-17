@@ -1,0 +1,38 @@
+[
+  {
+    "index": 0,
+    "timestamp": 1742176694852,
+    "stocks": "",
+    "previousHash": "0",
+    "nonce": 0,
+    "hash": "b3fd3cac1ce1fe3df1a5d6919df6af36a18613c956393e2ccc661814a61662ac"
+  },
+  {
+    "index": 1,
+    "timestamp": 1742176697611,
+    "stocks": {
+      "timestamp": "03-13-2025",
+      "quantity": 2,
+      "name": "VALE3",
+      "price": 53,
+      "buy": true
+    },
+    "previousHash": "b3fd3cac1ce1fe3df1a5d6919df6af36a18613c956393e2ccc661814a61662ac",
+    "nonce": 2762,
+    "hash": "0000e3ba2b3983dc86f98c7de8cd9c40287b3fad1ee999b7b878da740fb82b06"
+  },
+  {
+    "index": 2,
+    "timestamp": 1742176764634,
+    "stocks": {
+      "timestamp": "03-13-2025",
+      "quantity": 6,
+      "name": "SNEL11",
+      "price": 8.75,
+      "buy": true
+    },
+    "previousHash": "0000e3ba2b3983dc86f98c7de8cd9c40287b3fad1ee999b7b878da740fb82b06",
+    "nonce": 44092,
+    "hash": "000086dcd194117075dfbb3f1f5e2892b4338e648a099c84292f2d5ccd44dd99"
+  }
+]
