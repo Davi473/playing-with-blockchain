@@ -1,7 +1,6 @@
 import Blockchain from "../../domain/blockchain/Blockchain";
-import Block from "../../domain/block/Block";
 import UseCase from "./UseCase";
-import Stock from "../../domain/stock/Stock";
+import Asset from "../../domain/asset/Asset";
 
 export default class GetBlocks implements UseCase {
     
@@ -16,7 +15,7 @@ export default class GetBlocks implements UseCase {
 type Output = {
     index: number;
     timestamp: number;
-    stocks: Stock | "";
+    asset: Asset | {};
     previousHash: string;
     hash: string;
     nonce: number;

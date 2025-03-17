@@ -1,5 +1,5 @@
 import Block from "../block/Block";
-import Stock from "../stock/Stock";
+import Asset from "../asset/Asset";
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -31,12 +31,12 @@ export default class Blockchain {
     return this.chain[this.chain.length - 1];
   }
 
-  addStock(stock: Stock): string {
+  addStock(stock: Asset): string {
     const newBlock = new Block(this.chain.length, Date.now(), stock, this.getLatestBlock().hash);
     newBlock.mineBlock(this.difficulty);
     this.chain.push(newBlock);
     this.saveChain();
-    return `Message added and mined successfully: ${newBlock.stocks}`;
+    return `Message added and mined successfully: ${newBlock.asset}`;
   }
 
   saveChain(): void {

@@ -1,14 +1,16 @@
 import Blockchain from "../../domain/blockchain/Blockchain";
 import Block from "../../domain/block/Block";
+import Asset from "../../domain/asset/Asset";
 import UseCase from "./UseCase";
-import Stock from "../../domain/stock/Stock";
 
-export default class PostMessage implements UseCase {
+export default class PostAsset implements UseCase {
     
     constructor (readonly blockchain: Blockchain) {}
 
     public async execute(input: Input): Promise<Output> {
-        const stock = new Stock(input.timestamp, input.quantity, input.name, input.price, input.buy);
+        const stock = Asset.create(input.timestamp, input.name, input.category, input.quantity, input.price, input.buy);
+        console.log(stock);
+        console.log(input)
         const result = this.blockchain.addStock(stock);
         const output = { message: result, latestBlock: this.blockchain.getLatestBlock() };
         return output;
@@ -18,6 +20,7 @@ export default class PostMessage implements UseCase {
 type Input = {
     timestamp: Date;
     quantity: number;
+    category: string
     name: string;
     price: number;
     buy: boolean;

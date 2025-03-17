@@ -1,25 +1,25 @@
 import * as crypto from 'crypto';
-import Stock from '../stock/Stock';
+import Asset from '../asset/Asset';
 
 export default class Block {
   index: number;
   timestamp: number;
-  stocks: Stock | "";
+  asset: Asset | {};
   previousHash: string;
   hash: string;
   nonce: number;
 
-  constructor(index: number, timestamp: number, stocks: Stock | "", previousHash: string = "") {
+  constructor(index: number, timestamp: number, asset: Asset | {}, previousHash: string = "") {
     this.index = index;
     this.timestamp = timestamp;
-    this.stocks = stocks;
+    this.asset = asset;
     this.previousHash = previousHash;
     this.nonce = 0;
     this.hash = this.calculateHash();
   }
 
   calculateHash(): string {
-    return crypto.createHash('sha256').update(`${this.index}${this.timestamp}${this.stocks}${this.previousHash}${this.nonce}`).digest('hex');
+    return crypto.createHash('sha256').update(`${this.index}${this.timestamp}${this.asset}${this.previousHash}${this.nonce}`).digest('hex');
   }
 
   mineBlock(difficulty: number): void {

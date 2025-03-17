@@ -1,5 +1,5 @@
 import GetBlocks from './application/usecase/GetBlocks';
-import PostMessage from './application/usecase/PostMessage';
+import PostAsset from './application/usecase/PostAsset';
 import Blockchain from './domain/blockchain/Blockchain';
 import BlockChainController from './infra/controller/BlockChainController';
 import { AdaptorExpress } from './infra/httpServer/httpServer';
@@ -10,8 +10,8 @@ const api = new AdaptorExpress();
 const blockchain = new Blockchain();
 
 const getBlocks = new GetBlocks(blockchain);
-const postMessage = new PostMessage(blockchain);
+const postAsset = new PostAsset(blockchain);
 
-new BlockChainController(api, postMessage, getBlocks);
+new BlockChainController(api, postAsset, getBlocks);
 
 api.listen(3000);

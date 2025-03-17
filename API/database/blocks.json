@@ -1,38 +1,42 @@
 [
   {
     "index": 0,
-    "timestamp": 1742176694852,
-    "stocks": "",
+    "timestamp": 1742231303923,
+    "asset": "",
     "previousHash": "0",
     "nonce": 0,
-    "hash": "b3fd3cac1ce1fe3df1a5d6919df6af36a18613c956393e2ccc661814a61662ac"
+    "hash": "067e29ded02da8bf71906094bac604a4663de91dff0c2a8831149eebf894618a"
   },
   {
     "index": 1,
-    "timestamp": 1742176697611,
-    "stocks": {
-      "timestamp": "03-13-2025",
-      "quantity": 2,
+    "timestamp": 1742231306149,
+    "asset": {
+      "id": "719cef66-a19b-44ad-8909-3ace4089c130",
+      "timestamp": "03-17-2025",
       "name": "VALE3",
-      "price": 53,
+      "category": "STOCK",
+      "quantity": 2,
+      "price": 57.6,
       "buy": true
     },
-    "previousHash": "b3fd3cac1ce1fe3df1a5d6919df6af36a18613c956393e2ccc661814a61662ac",
-    "nonce": 2762,
-    "hash": "0000e3ba2b3983dc86f98c7de8cd9c40287b3fad1ee999b7b878da740fb82b06"
+    "previousHash": "067e29ded02da8bf71906094bac604a4663de91dff0c2a8831149eebf894618a",
+    "nonce": 26285,
+    "hash": "000096360f0624ec6f70c978473348b9335324a39988d2567978b020654769d0"
   },
   {
     "index": 2,
-    "timestamp": 1742176764634,
-    "stocks": {
-      "timestamp": "03-13-2025",
-      "quantity": 6,
-      "name": "SNEL11",
-      "price": 8.75,
+    "timestamp": 1742231342604,
+    "asset": {
+      "id": "1e141cd8-aa74-4bef-b36b-d8c28e0bc15b",
+      "timestamp": "03-17-2025",
+      "name": "VALE3",
+      "category": "STOCK",
+      "quantity": 3,
+      "price": 57.6,
       "buy": true
     },
-    "previousHash": "0000e3ba2b3983dc86f98c7de8cd9c40287b3fad1ee999b7b878da740fb82b06",
-    "nonce": 44092,
-    "hash": "000086dcd194117075dfbb3f1f5e2892b4338e648a099c84292f2d5ccd44dd99"
+    "previousHash": "000096360f0624ec6f70c978473348b9335324a39988d2567978b020654769d0",
+    "nonce": 57155,
+    "hash": "0000342a9312465a2611f932e3567e3249e34d8c5fb71f78e989830e0f080cb9"
   }
 ]
