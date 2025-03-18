@@ -32,7 +32,13 @@ export default class Blockchain {
   }
 
   addStock(stock: Asset): string {
-    const newBlock = new Block(this.chain.length, Date.now(), stock, this.getLatestBlock().hash);
+    const stockObject = {
+      id: stock.id, timestamp: stock.timestamp,
+      name: stock.name, category: stock.getCategory(),
+      quantity: stock.getQuantity(), price: stock.getPrice(),
+      buy: stock.buy
+    }
+    const newBlock = new Block(this.chain.length, Date.now(), stockObject, this.getLatestBlock().hash);
     newBlock.mineBlock(this.difficulty);
     this.chain.push(newBlock);
     this.saveChain();

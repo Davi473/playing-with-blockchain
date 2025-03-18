@@ -9,8 +9,6 @@ export default class PostAsset implements UseCase {
 
     public async execute(input: Input): Promise<Output> {
         const stock = Asset.create(input.timestamp, input.name, input.category, input.quantity, input.price, input.buy);
-        console.log(stock);
-        console.log(input)
         const result = this.blockchain.addStock(stock);
         const output = { message: result, latestBlock: this.blockchain.getLatestBlock() };
         return output;
