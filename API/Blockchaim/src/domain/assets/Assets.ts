@@ -29,14 +29,8 @@ export default class Assets {
                 };
                 continue;
             }
-            let quantity, amount;
-            if(asset.buy) {
-                quantity = asset.quantity + this.listAsset[assetName].quantity;
-                amount = (asset.price * asset.quantity) + this.listAsset[assetName].amount;
-            } else {
-                quantity = this.listAsset[assetName].quantity - asset.quantity
-                amount = this.listAsset[assetName].amount - (asset.price * asset.quantity);
-            }
+            const quantity = this.listAsset[assetName].quantity + (asset.buy ? asset.quantity : -asset.quantity);
+            const amount = this.listAsset[assetName].amount + (asset.buy ? asset.price * asset.quantity : -asset.price * asset.quantity);
             const price = amount / quantity;
             this.listAsset[assetName] = {...this.listAsset[assetName], 
                 quantity, amount, price}
