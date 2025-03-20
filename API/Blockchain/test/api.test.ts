@@ -1,18 +1,21 @@
 import { ec } from "elliptic";
 import crypto from "crypto";
+import axios from "axios";
+import * as bip39 from "bip39";
 
 const EC = new ec("secp256k1");
 
-function signTransaction(asset: any, privateKeyHex: string): string {
+function signTransaction(asset: any, privateKeyHex: Buffer): string {
     const keyPair = EC.keyFromPrivate(privateKeyHex, "hex");
-    const msgHash = crypto.createHash("sha256").update(asset).digest();
+    const msgHash = crypto.createHash("sha256").update(`${asset}`).digest();
     const signature = keyPair.sign(msgHash);
     return signature.toDER("hex");
 }
 
 test("Create block", async () => {  
-    const privateKey = "test";
-
+    const mnemonic = "test";
+    const seed = bip39.mnemonicToSeedSync(mnemonic);
+    const privateKey = seed.slice(0, 32);
     const keyPair = EC.keyFromPrivate(privateKey, "hex");
     const publicKey = keyPair.getPublic("hex"); 
     const asset = [
@@ -29,7 +32,7 @@ test("Create block", async () => {
 
     const transaction = {
         input: {
-            id: crypto.createHash("sha256").update(`${sign}${publicKey}`).digest("hex");
+            id: crypto.createHash("sha256").update(`${sign}${publicKey}`).digest("hex"),
             stringSig: {
                 asm: sign,
                 hex: publicKey
@@ -37,6 +40,6 @@ test("Create block", async () => {
         },
         asset
     }
-    const response = await axios.post("http://localhost:3000/transaction", transaction);
-    console.log(response);
+    const responsePost = await axios.post("http://localhost:3000/transaction", transaction);
+    const outputPost = responsePost.data
 });

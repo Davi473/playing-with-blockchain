@@ -11,7 +11,7 @@ export default class Blockchain {
   }
 
   createGenesisBlock(): Block {
-    return new Block(0, Date.now(), 1, "", 0, []);
+    return new Block(0, Date.now(), 1, "", 4);
   }
 
   getLatestBlock(): Block {
@@ -19,7 +19,7 @@ export default class Blockchain {
   }
 
   addTransction(transaction: Transaction): string {
-    const newBlock = new Block(this.chain.length, Date.now(), 1, this.getLatestBlock().hash, 4);
+    const newBlock = new Block(this.chain.length, Date.now(), 1, this.getLatestBlock().hash, 1);
     newBlock.addTransaction(transaction);
     newBlock.mineBlock();
     this.chain.push(newBlock);

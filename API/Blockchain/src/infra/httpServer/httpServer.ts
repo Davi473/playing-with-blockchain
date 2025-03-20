@@ -11,7 +11,7 @@ export class AdaptorExpress implements HttpServer {
     constructor () {
         this.api = express();
         this.api.use(express.json());
-	this.api.use(cors());
+	    this.api.use(cors());
     }
 
     public async register(method: string, url: string, callback: Function): Promise<void> {
