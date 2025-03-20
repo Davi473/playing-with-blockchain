@@ -24,21 +24,23 @@ export default class Blockchain {
   }
 
   createGenesisBlock(): Block {
-    return new Block(0, Date.now(), "", "0");
+    return new Block(0, Date.now(), [], "0");
   }
 
   getLatestBlock(): Block {
     return this.chain[this.chain.length - 1];
   }
 
-  addStock(stock: Asset): string {
-    const stockObject = {
-      id: stock.id, timestamp: stock.timestamp,
-      name: stock.name, category: stock.getCategory(),
-      quantity: stock.getQuantity(), price: stock.getPrice(),
-      buy: stock.buy
+  addStock(asset: Asset, stringSig: { asn: string, hex: string}): string {
+    const assetObject = {
+      id: asset.id, timestamp: asset.timestamp,
+      name: asset.name, category: asset.getCategory(),
+      quantity: asset.getQuantity(), price: asset.getPrice(),
+      buy: asset.buy
     }
-    const newBlock = new Block(this.chain.length, Date.now(), stockObject, this.getLatestBlock().hash);
+    const id = crypto.randomUUID();
+    const newBlock = new Block(this.chain.length, Date.now(), 
+      [id, {asset: assetObject}, stringSig], this.getLatestBlock().hash);
     newBlock.mineBlock(this.difficulty);
     this.chain.push(newBlock);
     this.saveChain();

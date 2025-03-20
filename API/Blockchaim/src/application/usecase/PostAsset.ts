@@ -8,20 +8,27 @@ export default class PostAsset implements UseCase {
     constructor (readonly blockchain: Blockchain) {}
 
     public async execute(input: Input): Promise<Output> {
-        const stock = Asset.create(input.timestamp, input.name, input.category, input.quantity, input.price, input.buy);
-        const result = this.blockchain.addStock(stock);
+        const inputAsset = input.asset;
+        const asset = Asset.create(inputAsset.timestamp, inputAsset.name, inputAsset.category, inputAsset.quantity, inputAsset.price, inputAsset.buy);
+        const result = this.blockchain.addStock(asset, input.stringSig);
         const output = { message: result, latestBlock: this.blockchain.getLatestBlock() };
         return output;
     }
 }
 
 type Input = {
-    timestamp: Date;
-    quantity: number;
-    category: string
-    name: string;
-    price: number;
-    buy: boolean;
+    asset: {
+        timestamp: Date;
+        quantity: number;
+        category: string
+        name: string;
+        price: number;
+        buy: boolean;
+    },
+    stringSig: {
+        asn: string,
+        hex: string
+    }
 }
 
 type Output = {

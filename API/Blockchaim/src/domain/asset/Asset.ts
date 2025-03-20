@@ -7,11 +7,13 @@ export default class Asset {
   category: Category;
   quantity: Quantity;
   price: Price;
+  timestamp: number;
 
   constructor(
-    readonly id: string, readonly timestamp: Date, readonly name: string, 
+    readonly id: string, timestamp: Date, readonly name: string, 
     category: string, quantity: number,  price: number, readonly buy: boolean
   ) {
+    this.timestamp = timestamp.getTime();
     this.category = new Category(category);
     this.quantity = new Quantity(quantity);
     this.price = new Price(price);

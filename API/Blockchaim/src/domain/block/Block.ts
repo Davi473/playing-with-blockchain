@@ -4,12 +4,12 @@ import Asset from '../asset/Asset';
 export default class Block {
   index: number;
   timestamp: number;
-  asset: Asset | {};
+  asset: any[];
   previousHash: string;
   hash: string;
   nonce: number;
 
-  constructor(index: number, timestamp: number, asset: Asset | {}, previousHash: string = "") {
+  constructor(index: number, timestamp: number, asset: any[], previousHash: string = "") {
     this.index = index;
     this.timestamp = timestamp;
     this.asset = asset;
