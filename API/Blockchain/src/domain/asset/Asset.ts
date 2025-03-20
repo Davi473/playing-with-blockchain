@@ -7,16 +7,22 @@ export default class Asset {
   quantity: Quantity;
   price: Price;
   time: number;
+  buy: boolean;
 
   constructor(
     time: number, readonly name: string, 
     category: string, quantity: number,  
-    price: number, readonly buy: boolean
+    price: number, buy: boolean
   ) {
     this.time = time;
     this.category = new Category(category);
     this.quantity = new Quantity(quantity);
     this.price = new Price(price);
+    this.buy = buy;
+  }
+
+  public getBuy(): boolean {
+    return this.buy;
   }
 
   public getCategory(): string {

@@ -5,11 +5,11 @@ import Asset from '../asset/Asset';
 export default class Transaction {
     id: string;
     input: Input;
-    asset: Asset[];
+    asset: any[];
 
     constructor(input: Input, asset: Asset[]) {
         this.input = input;
-        this.asset = asset;
+        this.asset = asset.map(asset => ({ name: asset.name, buy: asset.getBuy(), time: asset.time, category: asset.getCategory(), quantity: asset.getQuantity(), price: asset.getPrice()}));
         if (!this.validatedTransaction()) throw new Error("Transaction Invalid");
         this.id = this.calculateHash();
     }
