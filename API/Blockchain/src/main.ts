@@ -1,4 +1,3 @@
-import GetAsset from './application/usecase/GetAsset';
 import GetBlocks from './application/usecase/GetBlocks';
 import PostAsset from './application/usecase/PostAsset';
 import Blockchain from './domain/blockchain/Blockchain';
@@ -12,8 +11,7 @@ const blockchain = new Blockchain();
 
 const getBlocks = new GetBlocks(blockchain);
 const postAsset = new PostAsset(blockchain);
-const getAsset = new GetAsset(blockchain);
 
-new BlockChainController(api, postAsset, getBlocks, getAsset);
+new BlockChainController(api, postAsset, getBlocks);
 
 api.listen(3000);

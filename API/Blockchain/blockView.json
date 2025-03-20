@@ -1,0 +1,32 @@
+{
+    "hash": "string",
+    "height": "number",
+    "version": "number",
+    "previousBlockHash": "string",
+    "time": "Date.now()",
+    "bits": "4",
+    "nonce": "number",
+    "transaction": [
+        {
+            "id": "string",
+            "input": {
+                "id": "string",
+                "stringSig": {
+                    "asm": "string",
+                    "hex": "string"
+                }
+            },
+            "asset": [
+                {
+                    "id": "string",
+                    "name": "string",
+                    "category":"string",
+                    "quantity": "number",
+                    "price": "number", 
+                    "time": "new Date().getTime()",
+                    "buy": "boolean"
+                }
+            ]
+        }
+    ]
+}

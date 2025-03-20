@@ -12,11 +12,4 @@ export default class GetBlocks implements UseCase {
     }
 }
 
-type Output = {
-    index: number;
-    timestamp: number;
-    asset: Asset | {};
-    previousHash: string;
-    hash: string;
-    nonce: number;
-}
+type Output = any;
