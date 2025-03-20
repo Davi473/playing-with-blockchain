@@ -41,5 +41,8 @@ test("Create block", async () => {
         asset
     }
     const responsePost = await axios.post("http://localhost:3000/transaction", transaction);
-    const outputPost = responsePost.data
+    const outputPost: any = responsePost.data
+    const responseGet: any = await axios.get("http://localhost:3000/blocks");
+    const outputGet = responseGet.data[(responseGet.data.length - 1)].hash
+    expect(outputPost.latestBlock.hash).toBe(outputGet);
 });
