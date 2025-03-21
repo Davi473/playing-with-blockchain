@@ -20,8 +20,8 @@ test("Create block", async () => {
     const publicKey = keyPair.getPublic("hex"); 
     const asset = [
         {
-            name: "VALE",
-            category: "STOCK",
+            name: "SNEL11",
+            category: "FIIS",
             quantity: 1,
             price: 8.56,
             time: new Date("03-12-2025"),

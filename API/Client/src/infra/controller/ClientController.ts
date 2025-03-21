@@ -6,9 +6,10 @@ export default class ClientController {
         readonly api: HttpServer,
         readonly getAsset: GetAsset
     ) {
-        this.api.register("get", "/asset", async (params: any, body: any) => {
-            const output = await this.getAsset.execute();
-            return output;
+        this.api.register("get", "/asset/:publicKey", async (params: any, body: any) => {
+		const input = params;
+            	const output = await this.getAsset.execute(input);
+            	return output;
         });
 
         this.api.register("get", "/blocks", async (params: any, body: any) => {
