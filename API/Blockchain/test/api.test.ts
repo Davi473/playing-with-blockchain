@@ -17,13 +17,13 @@ test("Create block", async () => {
     const seed = bip39.mnemonicToSeedSync(mnemonic);
     const privateKey = seed.slice(0, 32);
     const keyPair = EC.keyFromPrivate(privateKey, "hex");
-    const publicKey = keyPair.getPublic("hex"); 
+    const publicKey = keyPair.getPublic("hex");
     const asset = [
         {
-            name: "SNEL11",
-            category: "FIIS",
+            name: "VALE",
+            category: "STOCK",
             quantity: 1,
-            price: 8.56,
+            price: 9.56,
             time: new Date("03-12-2025"),
             buy: true
         }
@@ -40,9 +40,10 @@ test("Create block", async () => {
         },
         asset
     }
-    const responsePost = await axios.post("http://localhost:3000/transaction", transaction);
-    const outputPost: any = responsePost.data
+    axios.post("http://localhost:3000/transaction", transaction);
     const responseGet: any = await axios.get("http://localhost:3000/blocks");
-    const outputGet = responseGet.data[(responseGet.data.length - 1)].hash
-    expect(outputPost.latestBlock.hash).toBe(outputGet);
-});
+    const outputGet = responseGet.data[(responseGet.data.length - 1)].transaction[0].input
+    expect(outputGet.stringSig.hex).toBe(transaction.input.stringSig.hex);
+    expect(outputGet.id).toBe(transaction.input.id);
+    expect(outputGet.stringSig.asm).toBe(transaction.input.stringSig.asm);
+}, 10000);

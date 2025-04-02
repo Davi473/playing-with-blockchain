@@ -8,12 +8,10 @@ export default class PostAsset implements UseCase {
     
     constructor (readonly blockchain: Blockchain) {}
 
-    public async execute(input: Input): Promise<Output> {
+    public async execute(input: Input): Promise<void> {
         const inputAsset = input.asset.map(asset => new Asset(asset.time, asset.name, asset.category, asset.quantity, asset.price, asset.buy));
         const transaction = new Transaction({...input.input}, inputAsset);
-        const result = this.blockchain.addTransction(transaction);
-        const output = { message: result, latestBlock: this.blockchain.getLatestBlock() };
-        return output;
+        this.blockchain.addTransction(transaction);
     }
 }
 
@@ -35,9 +33,4 @@ type Input = {
             hex: string
         }
     }
-}
-
-type Output = {
-    message: string,
-    latestBlock: Block
 }

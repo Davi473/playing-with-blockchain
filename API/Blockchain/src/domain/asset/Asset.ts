@@ -7,10 +7,11 @@ export default class Asset {
   quantity: Quantity;
   price: Price;
   time: number;
+  name: string;
   buy: boolean;
 
   constructor(
-    time: number, readonly name: string, 
+    time: number, name: string, 
     category: string, quantity: number,  
     price: number, buy: boolean
   ) {

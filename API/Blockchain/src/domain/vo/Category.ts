@@ -1,4 +1,4 @@
-const categorys = [ "STOCK", "FIIS", "AÇÕES", "ETFS", "CRIPTOS" ];
+const categorys = [ "STOCK", "FIIS", "AÇÕES", "ETFS", "CRIPTOS"];
 
 
 export default class Category {
