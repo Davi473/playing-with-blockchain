@@ -1,0 +1,85 @@
+[
+  [
+    [
+      {
+        "height": 0,
+        "time": 1743622122579,
+        "version": 1,
+        "previsionBlockHash": "Genesis Block",
+        "bits": 4,
+        "nonce": 43217,
+        "transaction": [],
+        "hash": "0000e4555290f866ba0c89e2c8d0f46bd588bfdea865ed0aa5b012dcca87cb6c"
+      }
+    ],
+    {
+      "height": 1,
+      "time": 1743622139671,
+      "version": 1,
+      "bits": 4,
+      "nonce": 73698,
+      "transaction": [
+        {
+          "input": {
+            "id": "b71d50819fdeccd745821e90f920afe2465bda10b05a0df6705714c8bae7eb56",
+            "stringSig": {
+              "asm": "304502207a651e2e3fb921bc32ce09fbc000601c2f3ed5bfc0c81b817eef1ba662eb1cd2022100826c9ca2143037d7de3b07211da253522d69132b09333a63a72f52811c4d61b5",
+              "hex": "0437e0dab40a246803972eb372fd8284aa74c7af605e36260f654a30567df63a28f342878ee1b378a49ab51750ad301213692484f4dbd2076a2cb26f6e3110c4a7"
+            }
+          },
+          "asset": [
+            {
+              "name": "VALE",
+              "buy": true,
+              "time": "2025-03-12T03:00:00.000Z",
+              "category": "STOCK",
+              "quantity": 1,
+              "price": 9.56
+            }
+          ],
+          "id": "4eb13de6d0eb98865b0028370cafe001afe19ebe961faa0ca227be3c9e282591"
+        }
+      ],
+      "hash": "0000f8a560e594d90ffa1664a92a94cac7062aaea00614cc342544f5338bc38f"
+    },
+    {
+      "height": 2,
+      "time": 1743622139978,
+      "version": 1,
+      "previsionBlockHash": "0000f8a560e594d90ffa1664a92a94cac7062aaea00614cc342544f5338bc38f",
+      "bits": 4,
+      "nonce": 61953,
+      "transaction": [
+        {
+          "input": {
+            "id": "3bcb52649e1e929bd422bca513186afae4af73da90855a38ca2672c1f38522dc",
+            "stringSig": {
+              "asm": "3046022100dd6676885a6fb5a0cf202122eca33907db34bf6eb1145880d4fc8bf6d7a4644d022100ce6585292cbeb9ce42b020a1c335840ec78602d2560880447af62cb4c823e8ad",
+              "hex": "0437e0dab40a246803972eb372fd8284aa74c7af605e36260f654a30567df63a28f342878ee1b378a49ab51750ad301213692484f4dbd2076a2cb26f6e3110c4a7"
+            }
+          },
+          "asset": [
+            {
+              "name": "VALE",
+              "buy": true,
+              "time": "2025-03-12T03:00:00.000Z",
+              "category": "STOCK",
+              "quantity": 1,
+              "price": 9.56
+            },
+            {
+              "name": "VALE",
+              "buy": true,
+              "time": "2025-03-12T03:00:00.000Z",
+              "category": "STOCK",
+              "quantity": 3,
+              "price": 9.56
+            }
+          ],
+          "id": "7a0c5bd6899ea1e8b51fd8e99f4f6f5af568737f071c5aef9e01f7857d110263"
+        }
+      ],
+      "hash": "00003e8c5f53bcb6b5770aec602343bfe46132b17c636f6dde45b459e2eb0233"
+    }
+  ]
+]

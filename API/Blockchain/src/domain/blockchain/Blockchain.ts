@@ -1,5 +1,6 @@
 import Block from "../block/Block";
 import Transaction from "../transaction/Transaction";
+import fs from "fs";
 
 export default class Blockchain {
   chain: any[];
@@ -7,11 +8,17 @@ export default class Blockchain {
 
   constructor() {
     this.difficulty = 4; 
-    this.chain = [this.createGenesisBlock()];
+    this.chain = [this.logStart()];
+    fs.writeFileSync("./database/data.json", JSON.stringify(this.chain, null, 2), "utf-8");
   }
 
-  logStart(): void {
-    
+  public logStart(): any {
+    const local = "./database/data.json";
+    if (!fs.existsSync(local)) return this.createGenesisBlock();
+    const response = fs.readFileSync(local, "utf-8");
+    const blockSave = JSON.parse(response);
+    if (blockSave) return this.chain = blockSave;
+    return this.createGenesisBlock();
   }
 
   createGenesisBlock(): Block {
@@ -29,5 +36,6 @@ export default class Blockchain {
     newBlock.addTransaction(transaction);
     newBlock.mineBlock();
     this.chain.push(newBlock);
+    fs.writeFileSync("./database/data.json", JSON.stringify(this.chain, null, 2), "utf-8");
   }
 }

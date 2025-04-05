@@ -8,7 +8,7 @@ export default class LastTenAdded implements UseCase{
     public async execute(input: Input): Promise<any> {
         let blocks: any[] = await this.service.get();
         const transactions: any[] = [];
-        blocks.reverse().forEach(block => {
+        blocks.forEach(block => {
 			if (!block.transaction[0]) return;
 			block.transaction.forEach(transaction => {
 				const publicKeyBlock = transaction.input.stringSig.hex;
@@ -20,7 +20,7 @@ export default class LastTenAdded implements UseCase{
 				});
 			});
 		});
-        return transactions.slice(-10);
+        return transactions.slice(-5).reverse();
     }
 }
 

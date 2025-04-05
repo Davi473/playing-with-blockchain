@@ -16,6 +16,7 @@ export default class Asset {
     price: number, buy: boolean
   ) {
     this.time = time;
+    this.name = name;
     this.category = new Category(category);
     this.quantity = new Quantity(quantity);
     this.price = new Price(price);
